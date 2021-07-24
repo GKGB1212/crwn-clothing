@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 
 import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
 
 import {auth} from '../../firebase/firebase.utils';
 
@@ -9,6 +10,9 @@ import { ReactComponent as Logo } from '../../assets/nike.svg';
 
 import CartIcon from '../cart-icon/cart-icon.component';
 import Cart from '../cart-dropdown/cart-dropdown.component';
+
+import { selectCartHidden } from '../../redux/cart/cart.selectors';
+import { selectCurrentUser } from '../../redux/user/user.selectors';
 
 import './header.styles.scss';
 
@@ -46,10 +50,16 @@ const Header=({currentUser,hidden})=>(
 )
 
 //mapStateToProps: giúp chuyển state trong store sang thành props sử dụng trong component.
-const mapStateToProps = ({user:{currentUser}, cart:{hidden}}) =>{
-    console.log('im there olall');
-    return({
-    currentUser,
-    hidden
-})}
+// const mapStateToProps = ({user:{currentUser}, cart:{hidden}}) =>{
+//     console.log('im there olall');
+//     return({
+//     currentUser,
+//     hidden
+// })}
+
+const mapStateToProps = createStructuredSelector({
+    currentUser:selectCurrentUser,
+    hidden:selectCartHidden
+})
+
 export default connect(mapStateToProps)(Header);
