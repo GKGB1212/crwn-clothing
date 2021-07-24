@@ -46,8 +46,10 @@ const Header=({currentUser,hidden})=>(
 )
 
 //mapStateToProps: giúp chuyển state trong store sang thành props sử dụng trong component.
-const mapStateToProps = ({user:{currentUser}, cart:{hidden}}) =>({
+const mapStateToProps = ({user:{currentUser}, cart:{hidden}}) =>{
+    console.log('im there olall');
+    return({
     currentUser,
     hidden
-})
+})}
 export default connect(mapStateToProps)(Header);
