@@ -25,9 +25,9 @@ const Header=({currentUser,hidden})=>(
             <Link className='option' to='/shop'>
                 SHOP
             </Link>
-            <Link className='option' to='/shop'>
+            <a className='option' href='https://webcanhan18110255.herokuapp.com/#contact' target='_blank'>
                 CONTACT
-            </Link>
+            </a>
             {
                 //nếu currentUser là 1 object thì sẽ return về true
                 currentUser ?
