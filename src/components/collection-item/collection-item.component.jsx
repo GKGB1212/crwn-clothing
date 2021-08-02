@@ -1,3 +1,4 @@
+//là nơi chưa tên sản phẩm gia tiền nút thêm vào giỏ
 import React from 'react';
 
 import { connect } from 'react-redux';

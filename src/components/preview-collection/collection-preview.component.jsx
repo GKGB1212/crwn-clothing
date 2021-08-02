@@ -1,3 +1,4 @@
+//xuất 4 cái item của lỗi loại
 import React from 'react';
 
 import CollectionItem from '../collection-item/collection-item.component';

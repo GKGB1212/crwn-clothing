@@ -1,11 +1,30 @@
 //combineReducers kết hợp cái reducer lại với nhau
 //gộp các reducer lại với nhau bằng hàm combineReducer.
 import { combineReducers } from "redux";
+import { persistReducer } from "redux-persist";
+import storage from "redux-persist/lib/storage";
 
 import userReducer from "./user/user.reducer";
 import cartReducer from "./cart/cart.reducer";
+import directoryReducer from "./directory/directory-reducer";
+import shopReducer from "./shop/shop.reducer";
 
-export default combineReducers({
+const persistConfig={
+    key:'root',
+    storage,
+    whitelist:['cart']
+}
+//chứa tất cả các reducer
+const rootReducer=combineReducers({
     user:userReducer,
-    cart:cartReducer
+    cart:cartReducer,
+    directory:directoryReducer,
+    shop: shopReducer
 })
+
+// export default combineReducers({
+//     user:userReducer,
+//     cart:cartReducer
+// })
+
+export default persistReducer(persistConfig,rootReducer)
